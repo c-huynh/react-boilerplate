@@ -1,0 +1,40 @@
+{
+  "name": "react-boilerplate",
+  "version": "1.0.0",
+  "description": "basic react boilerplate from scratch",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "build-babel": "npm run build-babel-server && npm run build-babel-client",
+    "build-babel-server": "babel src/server --out-dir ./dist --ignore '**/*.test.js'",
+    "build-babel-client": "babel src/client --copy-files --out-dir ./dist/public",
+    "test": "jest ./src",
+    "start": "node ./dist/server.js",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "node",
+    "react"
+  ],
+  "author": "Chi Chi Huynh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.4.1",
+    "jest": "^26.4.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
