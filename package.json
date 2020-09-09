@@ -41,6 +41,6 @@
     "webpack-node-externals": "^2.5.2"
   },
   "jest": {
-    "setupFilesAfterEnv": ["./src/enzyme.setup.js"]
+    "setupFilesAfterEnv": ["./src/client/test/enzyme.setup.js"]
   }
 }
