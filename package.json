@@ -51,7 +51,7 @@
       "./src/client/test/enzyme.setup.js"
     ],
     "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
+      "\\.(s*)css$": "identity-obj-proxy"
     }
   }
 }
