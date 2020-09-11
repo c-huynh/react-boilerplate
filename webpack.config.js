@@ -3,7 +3,10 @@ const nodeExternals = require('webpack-node-externals');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const mode = 'development';
+
 const client = {
+    mode: mode,
     entry: {
         'index': './src/client/index.js'
     },
@@ -38,6 +41,7 @@ const client = {
 };
 
 const server = {
+    mode: mode,
     entry: {
         'server': './src/server/index.js'
     },
