@@ -26,10 +26,11 @@ const client = {
                 use: "babel-loader"
             },
             {
-                test: /\.css$/,
+                test: /\.(s*)css$/,
                 use: [
                     { loader: MiniCssExtractPlugin.loader},
-                    { loader: 'css-loader'}
+                    { loader: 'css-loader'},
+                    { loader: 'sass-loader'}
                 ],
             },
         ]
