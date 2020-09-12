@@ -2,10 +2,12 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const mode = 'development';
 
 const client = {
+    stats: 'errors-warnings',
     mode: mode,
     entry: {
         'index': './src/client/index.js'
@@ -13,9 +15,11 @@ const client = {
     target: 'web',
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist/public')
+        path: path.resolve(__dirname, 'dist/public'),
+        publicPath: "/"
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
             template: 'src/client/index.html'
         }),
@@ -37,7 +41,13 @@ const client = {
                 ],
             },
         ]
-    }
+    },
+    devServer: {
+        contentBase: '/dist/public',
+        // publicPath: '/',
+        watchContentBase: true,
+        // writeToDisk: true
+    },
 };
 
 const server = {
@@ -50,6 +60,9 @@ const server = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
+    plugins: [
+        new CleanWebpackPlugin(),
+    ],
     module: {
         rules: [
             {
