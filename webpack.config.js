@@ -56,7 +56,7 @@ const server = {
     stats: 'errors-warnings',
     mode: mode,
     entry: {
-        'server': './src/server/index.js'
+        'server': './src/server/server.js'
     },
     target: 'node',
     output: {
