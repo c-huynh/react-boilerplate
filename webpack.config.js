@@ -2,6 +2,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const mode = 'development';
@@ -23,7 +24,10 @@ const client = {
         new HtmlWebPackPlugin({
             template: 'src/client/index.html'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new CleanTerminalPlugin({
+            message: 'development server running on http://localhost:8080',
+          })
     ],
     module: {
         rules: [
@@ -44,13 +48,12 @@ const client = {
     },
     devServer: {
         contentBase: '/dist/public',
-        // publicPath: '/',
         watchContentBase: true,
-        // writeToDisk: true
     },
 };
 
 const server = {
+    stats: 'errors-warnings',
     mode: mode,
     entry: {
         'server': './src/server/index.js'
