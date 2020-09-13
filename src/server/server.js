@@ -1,8 +1,11 @@
 const express = require('express');
 
 const app = express();
-app.use(express.static(process.cwd() + '/dist/public'));
+app.use(express.static(__dirname + '/public'));
 
+app.get('/route', (req, res, next) => {
+    return res.json({test: 'route'});
+})
 //404 Not Found Middleware
 app.use(function (req, res, next) {
     res.status(404)

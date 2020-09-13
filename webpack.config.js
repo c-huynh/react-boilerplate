@@ -75,7 +75,10 @@ const server = {
             }
         ]
     },
-    externals: [nodeExternals()]
+    externals: [nodeExternals()],
+    node: {
+        __dirname: false
+    }
 };
 
 module.exports = [client, server];
